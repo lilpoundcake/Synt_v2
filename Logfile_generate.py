@@ -125,22 +125,23 @@ bash_script.write("mkdir " + project_name + "\n")
 
 # для переноса файлов вввода и вывода
 for i in range(fragment_num):
-    bash_script.write("cp " + project_name + "_" + str(i + 1) + ".inp " + str(project_name) + "\n" +
-                      "cp " + project_name + "_" + str(i + 1) + ".txt " + str(project_name) + "\n")
+    bash_script.write("cp " + project_name + "_" + str(i + 1) + ".inp " + project_name + "\n" +
+                      "cp " + project_name + "_" + str(i + 1) + ".txt " + project_name + "\n")
 
 # для перемещения файлов с расчетами термодинамики олигов
-bash_script.write("cp " + project_name + "_hairpin.csv " + str(project_name) + "\n" +
-                  "cp " + project_name + "_high_temp.csv " + str(project_name) + "\n" +
-                  "cp " + project_name + "_SG_primers.fasta " + str(project_name) + "\n" +
-                  "cp " + project_name + "_sequence.fasta " + str(project_name) + "\n")
+bash_script.write("cp " + project_name + "_hairpin.csv " + project_name + "\n" +
+                  "cp " + project_name + "_high_temp.csv " + project_name + "\n" +
+                  "cp " + project_name + "_SG_primers.fasta " + project_name + "\n" +
+                  "cp " + project_name + "_sequence.fasta " + project_name + "\n")
 
-bash_script.write("cd\n" +
-                  "cp -r ./DNAWorks/" + project_name + "/ .\n")
+bash_script.write("cp -r " + project_name + " ..\n")
 
 # удаляю программу DNAWorks
-bash_script.write("rm -rf ./DNAWorks ./For_DNAWorks\n")
+bash_script.write("cd ..\n" +
+    "rm -rf ./DNAWorks ./For_DNAWorks\n")
 
 # упаковка всех выводов в архив
-bash_script.write("tar -zcvf " + str(project_name) + ".tar.gz " + "./" + str(project_name) + "/\n")
+bash_script.write("tar -zcf " + project_name + ".tar.gz " + project_name +
+                  "/\nrm -rf ./" + project_name)
 
 bash_script.close()
