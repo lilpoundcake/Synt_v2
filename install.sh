@@ -13,7 +13,6 @@ pip3 install numpy
 pip3 install pandas
 pip3 install primer3-py
 
-cd ..
 git clone https://github.com/davidhoover/DNAWorks.git
 cd DNAWorks/
 make
