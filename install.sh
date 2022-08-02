@@ -1,9 +1,10 @@
 #!/bin/bash
 
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 #eval "$(/opt/homebrew/bin/brew shellenv)"
+git clone https://github.com/Homebrew/brew homebrew
 eval "$(homebrew/bin/brew shellenv)"
 brew update --force --quiet
 chmod -R go-w "$(brew --prefix)/share/zsh"
