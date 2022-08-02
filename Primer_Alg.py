@@ -146,7 +146,11 @@ GC_content.to_csv(file_name + '_GC.csv')  # импорт данных по GC с
 # df3 - гетеродимеры
 
 # выводим проблемные олиги, в которых высокотемпературные шпильки и высокотемпературные гетеродимеры
-print('\nHairpins \n', df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']], '\n\nHeterodimers\n', df3)
+if len(df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']]) != 0:
+    print('\nHairpins \n', df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']])
+
+if len(df3) != 0 :
+    print('\n\nHeterodimers\n', df3)
 
 # и создаем отдельный файл с олигами у которых высокотемпературные шпильки
 high_hairpin = df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']]
