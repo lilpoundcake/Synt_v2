@@ -135,9 +135,9 @@ for i in GC_content.index:
     GC_content.loc[i, 'Mean'] = mean_GC
 
 # вывод GC содержания гена
-print("Mean GC: " + mean_GC)
+print("Mean GC: " + str(mean_GC))
 
-GC_content.to_excel(file_name + '_GC.xls')  # импорт данных по GC составу синтетического гена
+GC_content.to_csv(file_name + '_GC.csv')  # импорт данных по GC составу синтетического гена
 
 # NB - надо добавить код по расчету уровня оптимизации гена!
 
