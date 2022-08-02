@@ -2,17 +2,22 @@
 
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install python3-dev
-pip install pandas
-pip install wheel
-pip install primer3-py
-brew install gfortran
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+brew install python@3.10
+brew install gcc
+pip3 install --upgrade pip
+pip3 install wheel
+pip3 install numpy
+pip3 install pandas
+pip3 install primer3-py
 
 cd ..
 git clone https://github.com/davidhoover/DNAWorks.git
 cd DNAWorks/
 make
-cd ../Synt
+cd ../Synt_v2
 
 cp CHO.txt ../DNAWorks/
 cp Sf9.txt ../DNAWorks/
