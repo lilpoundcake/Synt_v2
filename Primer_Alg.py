@@ -135,7 +135,7 @@ for i in GC_content.index:
     GC_content.loc[i, 'Mean'] = mean_GC
 
 # вывод GC содержания гена
-print("Mean GC: " + str(mean_GC))
+print("\nMean GC: " + str(mean_GC))
 
 GC_content.to_csv(file_name + '_GC.csv')  # импорт данных по GC составу синтетического гена
 
@@ -146,7 +146,7 @@ GC_content.to_csv(file_name + '_GC.csv')  # импорт данных по GC с
 # df3 - гетеродимеры
 
 # выводим проблемные олиги, в которых высокотемпературные шпильки и высокотемпературные гетеродимеры
-print('Hairpins \n', df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']], '\n', df3)
+print('\nHairpins \n', df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']], '\n\nHeterodimers\n', df3)
 
 # и создаем отдельный файл с олигами у которых высокотемпературные шпильки
 high_hairpin = df1[df1.Hairpin > react_temp].loc[:, ['Hairpin', 'Seq']]
