@@ -33,7 +33,7 @@ for n in range(int(data_log.readline().split()[1])):
             start_seq += 1  # включаем счетчик для записи последовательности синтетического гена
 
         elif start_seq == 1:
-            for z in primers:  # NB - а нужен ли тут вообще цикл???
+            for z in primers:
                 # выписываем последовательность синтетического гена
                 if "---" in z:
                     start_seq = 0  # обнуляем счетчик. нуклеотидную последовательность гена выписали
@@ -45,7 +45,7 @@ for n in range(int(data_log.readline().split()[1])):
                         continue
 
         elif start_primer == 1:
-            for _ in range(number_of_primers):  # NB - а тут??? вроде и так у нас сверху цикл
+            for _ in range(number_of_primers):
                 # выписываем олиги для синтеза
                 primer_list.append(primers.readline().strip().split(' ')[1])
             start_primer = 0
